@@ -11,6 +11,7 @@ You'll need a valid subscription and to setup the following resources
 - storage account
 - servicebus namespace
 - servicebus topic (in and out)
+- servicebus topic subscription
 
 ### Setup function
 
@@ -23,6 +24,7 @@ Configuration for app (Application settings)
 ```
 SERVICEBUS_CONNECTION_IN=sb-sharedaccesspolicies-rootmanagesharedaccesskey-primaryconnectionstring
 SERVICEBUS_TOPIC_IN=name-for-topic-to-subscribe-to
+SERVICEBUS_TOPIC_SUBSCRIPTION=name-for-topic-subscription
 SERVICEBUS_CONNECTION_OUT=sb-sharedaccesspolicies-rootmanagesharedaccesskey-primaryconnectionstring
 SERVICEBUS_TOPIC_OUT=name-for-topic-to-publish-to
 ```
@@ -44,6 +46,7 @@ SERVICEBUS_TOPIC_OUT=name-for-topic-to-publish-to
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "SERVICEBUS_CONNECTION_IN": "<sb-sharedaccesspolicies-rootmanagesharedaccesskey-primaryconnectionstring>",
     "SERVICEBUS_TOPIC_IN": "<name-for-topic-to-subscribe-to>",
+    "SERVICEBUS_TOPIC_SUBSCRIPTION": "<name-for-topic-subscription>",
     "SERVICEBUS_CONNECTION_OUT": "<sb-sharedaccesspolicies-rootmanagesharedaccesskey-primaryconnectionstring>",
     "SERVICEBUS_TOPIC_OUT": "<name-for-topic-to-publish-to>"
   }
