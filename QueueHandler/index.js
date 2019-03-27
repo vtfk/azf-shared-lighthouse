@@ -1,15 +1,15 @@
 const checkLighthouse = require('../lib/check-lighthouse')
 
 module.exports = async function (context, mySbMsg) {
-  context.log(`job received - ${mySbMsg.id} - start`)
+  context.log(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - start`)
   const pageUrl = mySbMsg.url
   try {
-    context.log(`job - ${mySbMsg.id} - url - ${pageUrl} - lookup - start`)
+    context.log(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - url - ${pageUrl} - lighthouse - start`)
     let result = await checkLighthouse(context, pageUrl)
-    context.log(`job - ${mySbMsg.id} - url - ${pageUrl} - lookup - success`)
+    context.log(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - url - ${pageUrl} - lighthouse - success`)
     context.bindings.mySbQueue = Object.assign({}, mySbMsg, { result: result })
-    context.log(`job - ${mySbMsg.id} - finished`)
+    context.log(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - url - ${pageUrl} - finished`)
   } catch (error) {
-    context.log.error(`job - ${mySbMsg.id} - ${pageUrl} - ${error}`)
+    context.log.error(`job - ${mySbMsg.eventSourceId} - ${pageUrl} - ${error}`)
   }
 }
