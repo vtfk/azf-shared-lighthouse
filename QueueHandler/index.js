@@ -10,6 +10,6 @@ module.exports = async function (context, mySbMsg) {
     context.bindings.mySbQueue = Object.assign({}, mySbMsg, { result: result })
     context.log(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - url - ${pageUrl} - finished`)
   } catch (error) {
-    context.log.error(`job - ${mySbMsg.eventSourceId} - ${pageUrl} - ${error}`)
+    context.log.error(`azf-shared-lighthouse - ${mySbMsg.eventSourceId} - url - ${pageUrl} - ${error}`)
   }
 }
